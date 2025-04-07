@@ -1,0 +1,113 @@
+body {
+    margin:0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    background-image: url('img/bg.png');
+    background-size: cover;
+    .title {
+        display:flex;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        font-size: 6em;
+        font-weight: 800;
+        font-family: 'Bahnschrift', sans-serif;
+        margin-bottom: 5px;
+        margin-top: 30px;
+        #title1 {
+            color: rgb(77, 145, 77);
+            font-style: italic;
+            margin:0;
+        }
+        #title2 {
+            color: #ffb351;
+            -webkit-transform:  skewx(20deg);
+            -o-transform: skewx(20deg);
+            transform: skewx(20deg);
+            margin:0;
+        }
+    }
+    #sous_titre {
+        font-family: 'Bahnschrift', sans-serif;
+        font-weight: 700;
+        font-size: 1.5em;
+        color: #8a00b5;
+        font-style: italic;
+        margin-top: 0;
+    }
+}
+
+.input {
+    background-image: url('img/bg2.png');
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    label {
+        font-family: 'Bahnschrift', sans-serif;
+        font-size: 1em;
+        font-weight: 700;
+        color: #ffd000;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('img/bg3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 100vw;   
+    height: 80%;
+    .map {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        margin:2%;
+    }
+    .pixel {
+        width: 1vmax;
+        height: 1vmax;
+        border: 1px solid black;
+    }
+}
+
+.tuyau_img {
+    img {
+        position: absolute;
+        bottom:0px;
+        right: 10%;
+        width: 100px;
+        height: auto;
+        z-index: 2;
+    }    
+}
+
+#couleur_selecteur {
+    position: absolute;
+    bottom: 60px;
+    right: 10%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease-in-out, bottom 0.3s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#couleur_selecteur.active {
+    bottom: 150px;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1.4);
+}

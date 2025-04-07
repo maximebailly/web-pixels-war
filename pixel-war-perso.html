@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel War :p</title>
+    <link rel="stylesheet" href="./pixel-war-perso.css" />
+    <script src="./pixel-war-perso.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <p id="title1">_PIXEL</p>
+                <p id="title2">WAR_</p>
+            </div>
+            <p id="sous_titre">IMPOSEZ VOTRE SENS DE L'ESTHETIQUE.</p>
+        </div>
+        <div class="input">
+            <div class="adresse">
+                <label for="adresse">ADRESSE DU SERVEUR</label>
+                <input type="text" name="adresse" id="adresse" value="https://pixels-war.oie-lab.net" />
+            </div>
+            <div class="carte">
+                <label for="carte">CARTE</label>
+                <input type="text" name="carte" id="carte" value="TEST">
+            </div>
+        </div>
+        <div class="content">
+            <div class="map" id="map">
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+                <div class="pixel"></div>
+            </div>
+            <div id="tuyau" class="tuyau_img">
+                <img src="img/tuyau.png" alt="Tuyau"/>
+            </div>
+            <div class="couleur" id="couleur">
+                <input type="color" name="couleur_selecteur" id="couleur_selecteur" value="#FF0000" />
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+
+</body>
