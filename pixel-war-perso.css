@@ -63,25 +63,37 @@ body {
 }
 
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-image: url('img/bg3.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
     width: 100vw;   
     height: 80%;
-    .map {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        margin:2%;
+    .time {
+        margin-top: 5%;
+        text-align: center;
+        height:10%;
+        font-family: 'Bahnschrift', sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        color: #ffffff;
+        font-style: italic;
     }
-    .pixel {
-        width: 1vmax;
-        height: 1vmax;
-        border: 1px solid black;
+    .lower_content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .map {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            margin:2%;
+        }
+        .pixel {
+            width: 1vmax;
+            height: 1vmax;
+            border: 1px solid black;
+        }
     }
 }
 

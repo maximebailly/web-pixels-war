@@ -3,13 +3,15 @@
 // et sur quelle carte
 
 //même chose que document.querySelector("#adresse").value
-const adresse = document.getElementById("adresse").value
+const adresse = document.getElementById("adresse").value;
 const carte = document.getElementById("carte").value;
 const couleur = document.getElementById("couleur_selecteur").value;
+let last_change_date = 0;
 console.log({adresse, carte, couleur});
 
 const tuyau = document.getElementById("tuyau");
 const couleur_selecteur = document.getElementById("couleur_selecteur");
+const wait_time = document.getElementById("wait_time");
 
 tuyau.addEventListener("click", () => {
     // classe "active" pour afficher/masquer le sélecteur
@@ -52,7 +54,7 @@ async function init(key) { // async car on a pas beosin d'attendre la réponse p
     mapElement.style.gridTemplateColumns = `repeat(${nx}, 1fr)`; // on définit le nombre de colonnes de la carte
     mapElement.style.gridTemplateRows = `repeat(${ny}, 1fr)`; // on définit le nombre de lignes de la carte
 
-    setInterval(() => deltas(id), 200); // on appelle la fonction deltas toutes les 1s
+    setInterval(() => deltas(id), 200); // on appelle la fonction deltas toutes les 0.2s
 }
 
 preinit(); // on appelle la fonction preinit pour lancer le code
@@ -98,8 +100,32 @@ async function change_pixel(id) { // on récupère le pixel
 
 addEventListener("click", async (e) => { // on écoute le clic sur la carte
     const {target} = e; // on récupère l'élément sur lequel on a cliqué
-    if (target.classList.contains("pixel")) { // si c'est un pixel
-        const id = target.id; // on récupère l'id du pixel
-        change_pixel(id); // on appelle la fonction getpixel avec l'id du pixel
+    
+    const click_date = Date.now(); // On récupère le temps auquel on a cliqué
+
+    // si c'est un pixel et que le dernier changement était il y a plus de 10s
+    if (target.classList.contains("pixel")) {
+        if (Date.now()-last_change_date > 10000) {
+            const id = target.id; // on récupère l'id du pixel
+            change_pixel(id); // on appelle la fonction getpixel avec l'id du pixel
+            last_change_date = click_date; // on met à jour la date du dernier changement
+            wait_time.innerHTML = "";
+        }
+        else {
+            let i = 0;
+            var intervalId = setInterval(() => {
+                if (time_update() <= 0) {
+                    clearInterval(intervalId);
+                }
+            }, 100);
+        }
     }
 });
+
+function time_update() {
+    let time_wait = 10.0 - (Date.now()-last_change_date)/1000;
+    time_wait = Math.round(time_wait* 10) / 10; // Arrondi à un chiffre
+    if (time_wait >= 0) { wait_time.innerHTML = `${time_wait}s`;}
+    return time_wait;
+}
+
