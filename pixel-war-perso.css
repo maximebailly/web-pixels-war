@@ -88,7 +88,7 @@ body {
 .tuyau_img {
     img {
         position: absolute;
-        bottom:0px;
+        bottom:-15px;
         right: 10%;
         width: 100px;
         height: auto;
@@ -98,7 +98,7 @@ body {
 
 #couleur_selecteur {
     position: absolute;
-    bottom: 60px;
+    bottom: 50px;
     right: 10%;
     transform: translateX(-50%);
     transition: transform 0.3s ease-in-out, bottom 0.3s ease-in-out;
